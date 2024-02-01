@@ -1,0 +1,29 @@
+﻿@model IEnumerable<prjshoppincar.Models.tProduct>
+@{
+    ViewBag.Title = "產品列表";
+}
+
+
+
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    <div class="row">
+        @foreach(var item in Model)
+        {
+            <div class="col-sm-6 col-md-3">
+                <div class="card text-center" style="width:100%;">
+                    <img src="~/images/@item.fImg" class="card-img-top img-thumbnail" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">品名:@item.fName</h5>
+                        <h5 class="card-title">品名:@item.fPrice</h5>
+                        @if (Session["Member"] != null)
+                        {
+                            <a href="~/home/AddCar?fPId=@item.fPId" class="btn btn-success btn-block" >加入購物車</a>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>

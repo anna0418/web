@@ -23,5 +23,26 @@ namespace prjshoppincar.Controllers
             }
             
         }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+
+        public ActionResult Login(string fUserId,string fPwd)
+        {
+            var me = db.tMember.Where(m => m.fUserId == fUserId && m.fPwd == fPwd).FirstOrDefault();
+            if(me==null)
+            {
+                ViewBag.Message = "帳/密錯誤,登入失敗!!";
+                return View();
+            }else
+            {
+                Session["Member"] = me;
+                Session["MemberName"] = me.fName;
+                Session["Welcome"] = me.fName+"歡迎光臨";
+                return RedirectToAction("Index");
+            }
+        }
     }
 }

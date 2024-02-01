@@ -25,7 +25,7 @@
                     <li>@Html.ActionLink("購物車", "SoppingCar", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("歷史訂單紀錄", "OrderList", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li> @Html.ActionLink("登出", "Logout", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Session["Welcome"]</li>
+                    <li class = "navbar-brand">@Session["Welcome"]</li>
                 </ul>
             </div>
         </div>

@@ -1,0 +1,16 @@
+﻿
+
+@{
+    ViewBag.Title = "會員登入";
+}
+<div class="container">
+    <form method="post" action="~/home/Login"> 
+        <h2>@ViewBag.Title</h2>
+        <br />
+        <p>編號:<input type="text" name="fUserId" /></p>
+        <p>密碼:<input type="password" name="fPwd" /></p>
+        <input type="submit" value="登入" class="btn btn-primary"/>
+        <p class="text-danger">@ViewBag.Message</p>
+    </form>
+</div>
+

@@ -44,5 +44,31 @@ namespace prjshoppincar.Controllers
                 return RedirectToAction("Index");
             }
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(tMember t)
+        {
+            if(ModelState.IsValid)
+            {
+                var me = db.tMember.Where(m => m.fUserId == t.fUserId).FirstOrDefault();
+                if(me==null)
+                {
+                    db.tMember.Add(t);
+                    db.SaveChanges();
+                    return RedirectToAction("Login");
+                }else
+                {
+                    ViewBag.Message = "帳號已存在,註冊失敗!!";
+                    return View();
+                }
+            }else
+            {
+                ViewBag.Message = "驗證未通過!!";
+                return View();
+            }
+        }
     }
 }

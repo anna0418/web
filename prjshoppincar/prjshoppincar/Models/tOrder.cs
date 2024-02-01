@@ -11,14 +11,20 @@ namespace prjshoppincar.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class tOrder
     {
         public int fId { get; set; }
+        [DisplayName("訂單編號")]
         public string fOrderGuid { get; set; }
+        [DisplayName("會員編號")]
         public string fUserId { get; set; }
+        [DisplayName("收件人姓名")]
         public string fReceiver { get; set; }
+        [DisplayName("收件人電郵")]
         public string fEmail { get; set; }
+        [DisplayName("收件人地址")]
         public string fAddress { get; set; }
         public Nullable<System.DateTime> fDate { get; set; }
     }

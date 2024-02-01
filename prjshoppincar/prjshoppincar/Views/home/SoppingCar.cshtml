@@ -1,0 +1,97 @@
+﻿@model IEnumerable<prjshoppincar.Models.tOrderDetail>
+
+@{
+    ViewBag.Title = "購物車清單處理";
+}
+
+<h2>@ViewBag.Title</h2>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fOrderGuid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fIsApproved)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fOrderGuid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fPId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fIsApproved)
+        </td>
+        <td>
+            @Html.ActionLink("刪除商品", "Delete", new { fId = item.fId }, new {@class= "btn btn-danger"});
+        </td>
+    </tr>
+}
+
+</table>
+
+<hr />
+
+
+<form method="post" action="~/home/SoppingCar">
+    <h2>收件人基本資料</h2>
+    <br />
+    <div class="form-group row">
+        <label for="fReceiver" class="col-sm-2 col-form-label">收件人姓名</label>
+        <div class="col-sm-10 ">
+            <input type="text" id="fReceiver" class="form-control" name="fReceiver">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="fEmail" class="col-sm-2 col-form-label">收件人電郵</label>
+        <div class="col-sm-10 ">
+            <input type="email" id="fEmail" class="form-control" name="fEmail" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="fAddress" class="col-sm-2 col-form-label">收件人地址</label>
+        <div class="col-sm-10 ">
+            <input type="text" id="fAddress" class="form-control" name="fAddress" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10 ">
+            <button type="submit" class="btn btn-primary">確認訂單</button>
+        </div>
+    </div>
+
+</form>

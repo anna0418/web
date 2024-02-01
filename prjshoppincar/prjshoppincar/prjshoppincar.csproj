@@ -184,6 +184,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\home\Login.cshtml" />
     <Content Include="Views\home\Register.cshtml" />
+    <Content Include="Views\home\SoppingCar.cshtml" />
+    <Content Include="Views\home\OrderList.cshtml" />
+    <Content Include="Views\home\OrderDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
